@@ -21,7 +21,7 @@ namespace GameServer
 
             // 向操作系统申请一个ip和端口， 用来通讯
             m_ServerSocket.Bind(new IPEndPoint(IPAddress.Parse(m_serverIP), m_point));
-
+            // test 
             // 设置最多3000个排队请求
             m_ServerSocket.Listen(3000);
 
