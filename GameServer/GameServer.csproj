@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70E71782-873C-44B6-AFEE-77C0BE276B72}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GameServer</RootNamespace>
+    <AssemblyName>GameServer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LitJson">
+      <HintPath>..\..\youyou_Framework\LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="Mmcoy.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\悠游课堂学习资料_中高级\youyou_Framework\Mmcoy.Lib\Mmcoy.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CacheModel\Generate\RoleCacheModel.cs" />
+    <Compile Include="ClientSocket.cs" />
+    <Compile Include="Common\Core\Crc16.cs" />
+    <Compile Include="Common\Core\IProto.cs" />
+    <Compile Include="Common\Core\Map.cs" />
+    <Compile Include="Common\Core\SecurityUtil.cs" />
+    <Compile Include="Common\Core\Singleton.cs" />
+    <Compile Include="Common\Core\ZlibHelper.cs" />
+    <Compile Include="Common\Core\zlib_NET_104\Adler32.cs" />
+    <Compile Include="Common\Core\zlib_NET_104\Deflate.cs" />
+    <Compile Include="Common\Core\zlib_NET_104\InfBlocks.cs" />
+    <Compile Include="Common\Core\zlib_NET_104\InfCodes.cs" />
+    <Compile Include="Common\Core\zlib_NET_104\Inflate.cs" />
+    <Compile Include="Common\Core\zlib_NET_104\InfTree.cs" />
+    <Compile Include="Common\Core\zlib_NET_104\StaticTree.cs" />
+    <Compile Include="Common\Core\zlib_NET_104\SupportClass.cs" />
+    <Compile Include="Common\Core\zlib_NET_104\Tree.cs" />
+    <Compile Include="Common\Core\zlib_NET_104\ZInputStream.cs" />
+    <Compile Include="Common\Core\zlib_NET_104\Zlib.cs" />
+    <Compile Include="Common\Core\zlib_NET_104\ZOutputStream.cs" />
+    <Compile Include="Common\Core\zlib_NET_104\ZStream.cs" />
+    <Compile Include="Common\Core\zlib_NET_104\ZStreamException.cs" />
+    <Compile Include="DBConn.cs" />
+    <Compile Include="Common\EventDispatcher.cs" />
+    <Compile Include="Common\MMO_MemoryStream.cs" />
+    <Compile Include="DBModel\Generate\RoleDBModel.cs" />
+    <Compile Include="DBModel\MailModel.cs" />
+    <Compile Include="Entity\General\RoleEntity.cs" />
+    <Compile Include="Entity\MFAbstractCacheModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proto\CSharpProto\ProtoID.cs" />
+    <Compile Include="Proto\CSharpProto\RoleData_SkillReturnProto.cs" />
+    <Compile Include="Proto\CSharpProto\Shop_BuyProductProto.cs" />
+    <Compile Include="Proto\CSharpProto\test2Proto.cs" />
+    <Compile Include="Proto\CSharpProto\TestProto.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="RoleMgr.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Common\Core\zlib_NET_104\Adler32.cs.meta" />
+    <None Include="Common\Core\zlib_NET_104\Deflate.cs.meta" />
+    <None Include="Common\Core\zlib_NET_104\InfBlocks.cs.meta" />
+    <None Include="Common\Core\zlib_NET_104\InfCodes.cs.meta" />
+    <None Include="Common\Core\zlib_NET_104\Inflate.cs.meta" />
+    <None Include="Common\Core\zlib_NET_104\InfTree.cs.meta" />
+    <None Include="Common\Core\zlib_NET_104\StaticTree.cs.meta" />
+    <None Include="Common\Core\zlib_NET_104\SupportClass.cs.meta" />
+    <None Include="Common\Core\zlib_NET_104\Tree.cs.meta" />
+    <None Include="Common\Core\zlib_NET_104\ZInputStream.cs.meta" />
+    <None Include="Common\Core\zlib_NET_104\Zlib.cs.meta" />
+    <None Include="Common\Core\zlib_NET_104\ZOutputStream.cs.meta" />
+    <None Include="Common\Core\zlib_NET_104\ZStream.cs.meta" />
+    <None Include="Common\Core\zlib_NET_104\ZStreamException.cs.meta" />
+    <None Include="Proto\LuaProto\RoleData_SkillReturnProto.lua" />
+    <None Include="Proto\LuaProto\Shop_BuyProductProto.lua" />
+    <None Include="Proto\LuaProto\test2Proto.lua" />
+    <None Include="Proto\LuaProto\testProto.lua" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
