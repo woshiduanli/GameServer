@@ -14,7 +14,7 @@ public static class DBConn
         {
             if (string.IsNullOrEmpty(m_DBGameServer))
             {
-                m_DBGameServer = System.Configuration.ConfigurationManager.ConnectionStrings["DBGameServer"].ConnectionString;
+                m_DBGameServer = "Data Source=.;Initial Catalog=DBGameServer;User ID=suzhen2;Password=123456"; ; 
             }
             return m_DBGameServer;
         }

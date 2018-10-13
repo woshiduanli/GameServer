@@ -7,6 +7,8 @@ using System.Net.Sockets;
 using System.Net;
 using System.Threading;
 using Mmcoy.Framework.AbstractBase;
+using GameServerApp;
+using GameServerApp.Controller;
 
 namespace GameServer
 {
@@ -15,8 +17,18 @@ namespace GameServer
         private static string m_serverIP = "192.168.1.243";
         private static int m_point = 1011;
         private static Socket m_ServerSocket;
+        static void InitAllController()
+        {
+            //角色控制器初始化
+            RoleController.Instance.Init();
+
+            //世界地图场景管理器初始化
+            //WorldMapSceneMgr.Instance.Init();
+        }
+
         static void Main(string[] args)
         {
+            InitAllController(); 
             m_ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             // 向操作系统申请一个ip和端口， 用来通讯

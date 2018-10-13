@@ -5,9 +5,9 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using GameServer.Common;
+using GameServerApp.Common;
 
-namespace GameServer
+namespace GameServerApp
 {
     /// <summary>
     ///  和客户端通信的类
@@ -35,7 +35,7 @@ namespace GameServer
         // 服务端接收到客户端连接的时候， 创建一个线程， 去接收客户端的消息
         public ClientSocket(Socket socket, Role role)
         {
-            GameServer.DBModel.MailModel.Instance.init();
+            //GameServer.DBModel.MailModel.Instance.init();
             this.role = role;
             m_socket = socket;
             role.Client_Socket = this;
@@ -127,11 +127,11 @@ namespace GameServer
                                     }
                                     if (protoCode == 888)
                                     {
-                                        TestProto test = TestProto.GetProto(realContent);
-                                        Console.WriteLine("na----me:{0}", test.Name);
-                                        Console.WriteLine("price:{0}", test.price);
-                                        Console.WriteLine("id:{0}", test.Id);
-                                        Console.WriteLine("type:{0}", test.Type);
+                                        //TestProto test = TestProto.GetProto(realContent);
+                                        //Console.WriteLine("na----me:{0}", test.Name);
+                                        //Console.WriteLine("price:{0}", test.price);
+                                        //Console.WriteLine("id:{0}", test.Id);
+                                        //Console.WriteLine("type:{0}", test.Type);
                                     }
                                     else
                                     {
@@ -140,14 +140,14 @@ namespace GameServer
 
                                     using (MMO_MemoryStream stream = new MMO_MemoryStream())
                                     {
-                                        //stream.WriteUTF8String("告诉客户端欢迎登陆" + System.DateTime.Now.ToString());
-                                        TestProto test2 = new TestProto();
-                                        test2.Name = "我回来加加加啊了";
-                                        test2.price = 10.9f;
-                                        test2.Id = 3;
-                                        test2.Type = 4;
+                                        ////stream.WriteUTF8String("告诉客户端欢迎登陆" + System.DateTime.Now.ToString());
+                                        //TestProto test2 = new TestProto();
+                                        //test2.Name = "我回来加加加啊了";
+                                        //test2.price = 10.9f;
+                                        //test2.Id = 3;
+                                        //test2.Type = 4;
 
-                                        SendMsg(test2.ToArray());
+                                        //SendMsg(test2.ToArray());
                                     }
                                 }
                                 else

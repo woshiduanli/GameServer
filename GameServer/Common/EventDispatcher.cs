@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameServer.Common
+namespace GameServerApp.Common
 {
     /// <summary>
     /// 观察者模式
