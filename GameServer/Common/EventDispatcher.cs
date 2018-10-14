@@ -17,6 +17,19 @@ namespace GameServerApp.Common
         //委托字典
         private Map<ushort, List<OnActionHandler>> dic = new Map<ushort, List<OnActionHandler>>();
 
+        public Map<ushort, List<OnActionHandler>> Dic
+        {
+            get
+            {
+                return dic;
+            }
+
+            set
+            {
+                dic = value;
+            }
+        }
+
         /// <summary>
         /// 添加监听
         /// </summary>
@@ -24,13 +37,13 @@ namespace GameServerApp.Common
         /// <param name="handler"></param>
         public void AddEventListener(ushort protoCode, OnActionHandler handler)
         {
-            if (!dic.ContainsKey(protoCode))
+            if (!Dic.ContainsKey(protoCode))
             {
                 List<OnActionHandler> lstHandler = new List<OnActionHandler>();
-                lstHandler.Add(handler);
-                dic[protoCode] = lstHandler;
+                Dic[protoCode] = lstHandler;
             }
-            dic[protoCode].Add(handler);
+
+            Dic[protoCode].Add(handler);
         }
 
         /// <summary>
@@ -41,13 +54,13 @@ namespace GameServerApp.Common
         //移除监听
         public void RemoveEventListener(ushort protoCode, OnActionHandler handler)
         {
-            if (dic.ContainsKey(protoCode))
+            if (Dic.ContainsKey(protoCode))
             {
-                List<OnActionHandler> lstHandler = dic[protoCode];
+                List<OnActionHandler> lstHandler = Dic[protoCode];
                 lstHandler.Remove(handler);
                 if (lstHandler.Count == 0)
                 {
-                    dic.Remove(protoCode);
+                    Dic.Remove(protoCode);
                 }
             }
         }
@@ -59,9 +72,10 @@ namespace GameServerApp.Common
         /// <param name="param"></param>
         public void Dispatch(ushort protoCode, Role role, byte[] buffer)
         {
-            if (dic.ContainsKey(protoCode))
+            if (Dic.ContainsKey(protoCode))
             {
-                List<OnActionHandler> lstHandler = dic[protoCode];
+                List<OnActionHandler> lstHandler = Dic[protoCode];
+                Console.WriteLine("这是就是{0}了{1}", lstHandler.Count, protoCode);
                 if (lstHandler != null && lstHandler.Count > 0)
                 {
                     for (int i = 0; i < lstHandler.Count; i++)

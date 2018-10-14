@@ -125,54 +125,9 @@ namespace GameServerApp
                                         // ------------------ --------------  结束解包  ----------------------------- 
                                         EventDispatcher.Instance.Dispatch(protoCode, role, realContent);
                                     }
-                                    if (protoCode == 888)
-                                    {
-                                        //TestProto test = TestProto.GetProto(realContent);
-                                        //Console.WriteLine("na----me:{0}", test.Name);
-                                        //Console.WriteLine("price:{0}", test.price);
-                                        //Console.WriteLine("id:{0}", test.Id);
-                                        //Console.WriteLine("type:{0}", test.Type);
-                                    }
-                                    else
-                                    {
-
-                                    }
-
-                                    using (MMO_MemoryStream stream = new MMO_MemoryStream())
-                                    {
-                                        ////stream.WriteUTF8String("告诉客户端欢迎登陆" + System.DateTime.Now.ToString());
-                                        //TestProto test2 = new TestProto();
-                                        //test2.Name = "我回来加加加啊了";
-                                        //test2.price = 10.9f;
-                                        //test2.Id = 3;
-                                        //test2.Type = 4;
-
-                                        //SendMsg(test2.ToArray());
-                                    }
                                 }
                                 else
                                     break;
-
-
-
-                                //// 协议id
-                                //ushort protoCode = 0;
-                                //// 协议内容
-                                //byte[] ProtoContent = new byte[bodyLength - 2];
-
-
-                                //using (MMO_MemoryStream ms = new MMO_MemoryStream(bufferBody))
-                                //{
-                                //    protoCode = ms.ReadUShort();
-                                //    ms.Read(ProtoContent, 0, ProtoContent.Length);
-                                //}
-                                //EventDispatcher.Instance.Dispatch(protoCode, role, ProtoContent);
-
-
-
-                                // 临时测试
-
-
 
                                 //------------- 处理剩余字节数组 -----------------
                                 int remainLen = (int)m_ReceiveMS.Length - allLength;

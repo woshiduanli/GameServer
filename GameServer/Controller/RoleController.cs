@@ -177,7 +177,7 @@ namespace GameServerApp.Controller
         {
             RoleOperation_LogOnGameServerReturnProto proto = new RoleOperation_LogOnGameServerReturnProto();
 
-            accountId = 1010;
+            //accountId = 1010;
 
             List<RoleEntity> lst = RoleCacheModel.Instance.GetList(condition: string.Format("[AccountId]={0}", accountId));
             if (lst != null && lst.Count > 0)
