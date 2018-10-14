@@ -14,7 +14,7 @@ namespace GameServer
 {
     class Program
     {
-        private static string m_serverIP = "192.168.1.243";
+        private static string m_serverIP = "192.168.0.101";
         private static int m_point = 1011;
         private static Socket m_ServerSocket;
         static void InitAllController()
@@ -28,6 +28,16 @@ namespace GameServer
 
         static void Main(string[] args)
         {
+            if ("ER01ZXNIQGFET10" == System.Net.Dns.GetHostName())
+            {
+                m_serverIP = "192.168.0.101";
+            }
+            else
+            {
+                m_serverIP = "192.168.2.143";
+            }
+
+
             InitAllController(); 
             m_ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 

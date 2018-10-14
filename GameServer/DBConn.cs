@@ -14,7 +14,14 @@ public static class DBConn
         {
             if (string.IsNullOrEmpty(m_DBGameServer))
             {
-                m_DBGameServer = "Data Source=.;Initial Catalog=DBGameServer;User ID=suzhen2;Password=123456"; ; 
+                if ("ER01ZXNIQGFET10" == System.Net.Dns.GetHostName())
+                {
+                    m_DBGameServer = "Data Source=.;Initial Catalog=DBGameServer;User ID=sa;Password=123456";
+                }
+                else
+                {
+                    m_DBGameServer = "Data Source=.;Initial Catalog=DBGameServer;User ID=suzhen2;Password=123456";
+                }
             }
             return m_DBGameServer;
         }
