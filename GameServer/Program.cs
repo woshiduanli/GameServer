@@ -28,21 +28,22 @@ namespace GameServer
 
         static void Main(string[] args)
         {
-            if ("ER01ZXNIQGFET10" == System.Net.Dns.GetHostName())
-            {
-                m_serverIP = "192.168.0.101";
-            }
-            else
-            {
-                m_serverIP = "192.168.2.143";
-            }
+            //Console.WriteLine("启222动监听{0}成功", GetIpAddress());
+            //if ("ER01ZXNIQGFET10" == System.Net.Dns.GetHostName())
+            //{
+            //    m_serverIP = "192.168.0.102";
+            //}
+            //else
+            //{
+            //    m_serverIP = "192.168.2.143";
+            //}
 
 
             InitAllController(); 
             m_ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             // 向操作系统申请一个ip和端口， 用来通讯
-            m_ServerSocket.Bind(new IPEndPoint(IPAddress.Parse(m_serverIP), m_point));
+            m_ServerSocket.Bind(new IPEndPoint(IPAddress.Parse(GetIpAddress()), m_point));
             // test 
             // 设置最多3000个排队请求
             m_ServerSocket.Listen(3000);
@@ -66,6 +67,14 @@ namespace GameServer
 
             //RoleCacheModel.Instance.Create(role);
             Console.ReadLine();
+        }
+
+        private static string GetIpAddress()
+        {
+            string hostName = Dns.GetHostName();   //获取本机名
+            IPHostEntry localhost = Dns.GetHostByName(hostName);    //方法已过期，可以获取IPv4的地址
+            IPAddress localaddr = localhost.AddressList[0];
+            return localaddr.ToString();
         }
 
         private static void ListenClientCallBack()
