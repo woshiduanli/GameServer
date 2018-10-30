@@ -34,7 +34,7 @@ namespace GameServer
             }
             else
             {
-                m_serverIP = "192.168.2.143";
+                m_serverIP = "192.168.1.243";
             }
 
 
