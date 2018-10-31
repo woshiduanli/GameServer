@@ -58,7 +58,9 @@ public abstract class AbstractDBModel<T, P>
     /// </summary>
     private void LoadData()
     {
-        using (GameDataTableParser parse = new GameDataTableParser(string.Format(@"D:\GameData\{0}", FileName)))
+
+        string str = System.IO.Directory.GetCurrentDirectory() + "/../../Data/LocalData//{0}";
+        using (GameDataTableParser parse = new GameDataTableParser(string.Format(str, FileName)))
         {
             while (!parse.Eof)
             {

@@ -230,7 +230,8 @@ namespace GameServerApp.Controller
 
             //给角色战斗相关的属性赋值
             //职业 等级
-            JobEntity jobEntity = JobDBModel.Instance.Get(entity.JobId);
+            if (entity.JobId == 0) entity.JobId = 1;
+             JobEntity jobEntity = JobDBModel.Instance.Get(entity.JobId);
 
             //职业等级数据
             JobLevelEntity jobLevelEntity = JobLevelDBModel.Instance.Get(entity.Level);
