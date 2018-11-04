@@ -231,7 +231,7 @@ namespace GameServerApp.Controller
             //给角色战斗相关的属性赋值
             //职业 等级
             if (entity.JobId == 0) entity.JobId = 1;
-             JobEntity jobEntity = JobDBModel.Instance.Get(entity.JobId);
+            JobEntity jobEntity = JobDBModel.Instance.Get(entity.JobId);
 
             //职业等级数据
             JobLevelEntity jobLevelEntity = JobLevelDBModel.Instance.Get(entity.Level);
@@ -469,7 +469,12 @@ namespace GameServerApp.Controller
 
 
                 proto.LastInWorldMapId = entity.LastInWorldMapId;
-                proto.LastInWorldMapPos = entity.LastInWorldMapPos;
+                if (entity.LastInWorldMapPos != null && entity.LastInWorldMapPos != "")
+                    proto.LastInWorldMapPos = entity.LastInWorldMapPos;
+                else
+                {
+                    proto.LastInWorldMapPos = "";
+                }
 
                 role.NickName = entity.NickName;
                 role.JobId = entity.JobId;
@@ -490,7 +495,12 @@ namespace GameServerApp.Controller
 
                 role.PrevWorldMapId = entity.LastInWorldMapId;
                 role.LastInWorldMapId = entity.LastInWorldMapId;
-                role.LastInWorldMapPos = entity.LastInWorldMapPos;
+                if (!string.IsNullOrEmpty(entity.LastInWorldMapPos))
+                    role.LastInWorldMapPos = entity.LastInWorldMapPos;
+                else
+                {
+                    role.LastInWorldMapPos = "";
+                }
             }
             else
             {
